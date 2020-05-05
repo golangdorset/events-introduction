@@ -1,0 +1,36 @@
+syntax = "proto3";
+
+// event informing new account has been created and stored in database
+message AccountCreatedEvent {
+    string account_id = 1;
+}
+
+// event informing that account is now validated
+message AccountValidatedEvent {
+    string account_id = 1;
+}
+
+// event informing password for the account has been changed
+message PasswordChangedEvent {
+    string account_id = 1;
+    string password = 2;
+}
+
+// examples of events not implemented in the demo
+
+// event informing new event has been submitted
+message OrderPlacedEvent {
+  string order_id = 1;
+  string account_id = 2;
+  repeated Product products = 3;
+}
+
+// order cancelled event
+message OrderCancelled {
+  string order_id = 1;
+}
+
+// product being part of order, not an event as such
+message Product {
+  string product_id = 1;
+}
